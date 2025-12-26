@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"> 
-<head> 
+<html lang="ar" dir="rtl">
+<head>
     <meta charset="utf-8" />
     <title>My project</title>
-    <link rel="icon" href="85fd0e4e3e07989393c382ba520fbf97.jpg">
 </head>
-<body> 
-    <audio src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" controls autoplay muted>
-    </audio>
+<body>
+    <audio id="player" src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" controls></audio>
+
+    <script>
+        window.addEventListener("load", function() {
+            var audio = document.getElementById("player");
+            audio.play().catch(function(err) {
+                console.log("المتصفح منع التشغيل التلقائي:", err);
+            });
+        });
+    </script>
 </body>
 </html>
