@@ -5,12 +5,19 @@
     <title>My project</title>
 </head>
 <body>
-    <audio id="player" src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" controls></audio>
+    <!-- مشغل الصوت مخفي -->
+    <audio id="player" src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" autoplay loop hidden muted></audio>
 
     <script>
         window.addEventListener("load", function() {
             var audio = document.getElementById("player");
-            audio.play().catch(function(err) {
+            // محاولة تشغيل الصوت
+            audio.play().then(() => {
+                // بعد ثانية، نرفع الصوت
+                setTimeout(() => {
+                    audio.muted = false;
+                }, 1000);
+            }).catch(err => {
                 console.log("المتصفح منع التشغيل التلقائي:", err);
             });
         });
