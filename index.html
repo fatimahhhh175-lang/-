@@ -3,17 +3,22 @@
 <head>
     <meta charset="utf-8" />
     <title>My project</title>
+    <style>
+        /* نخفي مشغل الصوت تمامًا */
+        audio {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- مشغل الصوت مخفي -->
-    <audio id="player" src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" autoplay loop hidden muted></audio>
+    <audio id="player" src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" autoplay loop muted></audio>
 
     <script>
         window.addEventListener("load", function() {
             var audio = document.getElementById("player");
-            // محاولة تشغيل الصوت
+            // تشغيل الأغنية تلقائيًا
             audio.play().then(() => {
-                // بعد ثانية، نرفع الصوت
+                // بعد ثانية نرفع الصوت
                 setTimeout(() => {
                     audio.muted = false;
                 }, 1000);
