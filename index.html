@@ -4,28 +4,21 @@
     <meta charset="utf-8" />
     <title>My project</title>
     <style>
-        /* نخفي مشغل الصوت تمامًا */
+        /* نخفي مشغل الصوت */
         audio {
             display: none;
         }
     </style>
 </head>
 <body>
-    <audio id="player" src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" autoplay loop muted></audio>
+    <audio id="player" src="Sugar_Brownies-Dharia_Arabic_sub_Lyrics(M4A_128K).m4a" loop></audio>
 
     <script>
-        window.addEventListener("load", function() {
+        // أول ضغطة على أي مكان في الصفحة تشغل الأغنية
+        document.addEventListener("click", function() {
             var audio = document.getElementById("player");
-            // تشغيل الأغنية تلقائيًا
-            audio.play().then(() => {
-                // بعد ثانية نرفع الصوت
-                setTimeout(() => {
-                    audio.muted = false;
-                }, 1000);
-            }).catch(err => {
-                console.log("المتصفح منع التشغيل التلقائي:", err);
-            });
-        });
+            audio.play();
+        }, { once: true }); // once = يشتغل مرة واحدة فقط
     </script>
 </body>
 </html>
